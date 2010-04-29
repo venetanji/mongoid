@@ -16,13 +16,7 @@ module Mongoid #:nodoc
 
     # Defaults the configuration options to true.
     def initialize
-      @allow_dynamic_fields = true
-      @parameterize_keys = true
-      @persist_in_safe_mode = true
-      @persist_types = true
-      @raise_not_found_error = true
-      @reconnect_time = 3
-      @use_object_ids = false
+      reset
     end
 
     # Sets whether the times returned from the database are in UTC or local time.
@@ -139,6 +133,34 @@ module Mongoid #:nodoc
       @reconnect_time = 3
       @use_object_ids = false
       @time_zone = nil
+    end
+
+    # Confiure mongoid from a hash that was usually parsed out of yml.
+    #
+    # Example:
+    #
+    # <tt>Mongoid::Config.instance.from_hash({})</tt>
+    def from_hash(settings)
+      _master(settings)
+      _slaves(settings)
+      settings.except("database").each_pair do |name, value|
+        send("#{name}=", value) if respond_to?(name)
+      end
+    end
+
+    # Reset the configuration options to the defaults.
+    #
+    # Example:
+    #
+    # <tt>config.reset</tt>
+    def reset
+      @allow_dynamic_fields = true
+      @parameterize_keys = true
+      @persist_in_safe_mode = true
+      @persist_types = true
+      @raise_not_found_error = true
+      @reconnect_time = 3
+      @use_object_ids = false
     end
 
     protected
