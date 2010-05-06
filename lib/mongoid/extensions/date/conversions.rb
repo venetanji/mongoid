@@ -3,11 +3,13 @@ module Mongoid #:nodoc:
   module Extensions #:nodoc:
     module Date #:nodoc:
       module Conversions #:nodoc:
-        def set(value)
-          value.to_date.at_midnight.to_time unless value.blank?
-        end
         def get(value)
-          value ? value.getlocal.to_date : value
+          super.try(:to_date)
+        end
+
+        def convert_to_time(value)
+          value = ::Date.parse(value) if value.is_a?(::String)
+          ::Time.utc(value.year, value.month, value.day)
         end
       end
     end
