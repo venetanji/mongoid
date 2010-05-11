@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Durran Jordan"]
-  s.date = %q{2010-03-17}
+  s.date = %q{2010-05-11}
   s.email = %q{durran@gmail.com}
   s.extra_rdoc_files = [
     "README.rdoc"
@@ -120,6 +120,9 @@ Gem::Specification.new do |s|
      "lib/mongoid/versioning.rb",
      "mongoid.gemspec",
      "perf/benchmark.rb",
+     "rake_spec_several_time_zones.sh",
+     "spec/config/mongoid.yml",
+     "spec/config/mongoid_with_utc.yml",
      "spec/integration/mongoid/associations_spec.rb",
      "spec/integration/mongoid/attributes_spec.rb",
      "spec/integration/mongoid/commands_spec.rb",
