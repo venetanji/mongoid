@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Durran Jordan"]
-  s.date = %q{2010-05-11}
+  s.date = %q{2010-05-13}
   s.email = %q{durran@gmail.com}
   s.extra_rdoc_files = [
     "README.rdoc"
@@ -90,7 +90,7 @@ Gem::Specification.new do |s|
      "lib/mongoid/extensions/string/conversions.rb",
      "lib/mongoid/extensions/string/inflections.rb",
      "lib/mongoid/extensions/symbol/inflections.rb",
-     "lib/mongoid/extensions/time/conversions.rb",
+     "lib/mongoid/extensions/time_conversions.rb",
      "lib/mongoid/extras.rb",
      "lib/mongoid/factory.rb",
      "lib/mongoid/field.rb",
@@ -213,7 +213,7 @@ Gem::Specification.new do |s|
      "spec/unit/mongoid/extensions/string/conversions_spec.rb",
      "spec/unit/mongoid/extensions/string/inflections_spec.rb",
      "spec/unit/mongoid/extensions/symbol/inflections_spec.rb",
-     "spec/unit/mongoid/extensions/time/conversions_spec.rb",
+     "spec/unit/mongoid/extensions/time_conversions_spec.rb",
      "spec/unit/mongoid/extras_spec.rb",
      "spec/unit/mongoid/factory_spec.rb",
      "spec/unit/mongoid/field_spec.rb",
@@ -337,7 +337,7 @@ Gem::Specification.new do |s|
      "spec/unit/mongoid/extensions/string/conversions_spec.rb",
      "spec/unit/mongoid/extensions/string/inflections_spec.rb",
      "spec/unit/mongoid/extensions/symbol/inflections_spec.rb",
-     "spec/unit/mongoid/extensions/time/conversions_spec.rb",
+     "spec/unit/mongoid/extensions/time_conversions_spec.rb",
      "spec/unit/mongoid/extras_spec.rb",
      "spec/unit/mongoid/factory_spec.rb",
      "spec/unit/mongoid/field_spec.rb",
@@ -373,14 +373,14 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<activesupport>, ["<= 2.3.5"])
-      s.add_runtime_dependency(%q<mongo>, [">= 0.19.1"])
+      s.add_runtime_dependency(%q<mongo>, ["= 0.19.1"])
       s.add_runtime_dependency(%q<durran-validatable>, [">= 2.0.1"])
       s.add_runtime_dependency(%q<will_paginate>, ["< 2.9"])
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
       s.add_development_dependency(%q<mocha>, [">= 0.9.8"])
     else
       s.add_dependency(%q<activesupport>, ["<= 2.3.5"])
-      s.add_dependency(%q<mongo>, [">= 0.19.1"])
+      s.add_dependency(%q<mongo>, ["= 0.19.1"])
       s.add_dependency(%q<durran-validatable>, [">= 2.0.1"])
       s.add_dependency(%q<will_paginate>, ["< 2.9"])
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
@@ -388,7 +388,7 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<activesupport>, ["<= 2.3.5"])
-    s.add_dependency(%q<mongo>, [">= 0.19.1"])
+    s.add_dependency(%q<mongo>, ["= 0.19.1"])
     s.add_dependency(%q<durran-validatable>, [">= 2.0.1"])
     s.add_dependency(%q<will_paginate>, ["< 2.9"])
     s.add_dependency(%q<rspec>, [">= 1.2.9"])
