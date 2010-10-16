@@ -30,7 +30,8 @@ module Mongoid #:nodoc:
         :remove,
         :rename,
         :save,
-        :update
+        :update,
+        :find_and_modify
       ]
 
       # Convenience constant for getting back all collection operations.
